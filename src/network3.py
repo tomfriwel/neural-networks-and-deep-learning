@@ -32,7 +32,8 @@ versions of Theano.
 
 #### Libraries
 # Standard library
-import cPickle
+# import cPickle
+import _pickle as cPickle
 import gzip
 
 # Third-party libraries
@@ -54,14 +55,14 @@ from theano.tensor import tanh
 #### Constants
 GPU = True
 if GPU:
-    print "Trying to run under a GPU.  If this is not desired, then modify "+\
-        "network3.py\nto set the GPU flag to False."
+    print("Trying to run under a GPU.  If this is not desired, then modify "+\
+        "network3.py\nto set the GPU flag to False.")
     try: theano.config.device = 'gpu'
     except: pass # it's already set
     theano.config.floatX = 'float32'
 else:
-    print "Running with a CPU.  If this is not desired, then the modify "+\
-        "network3.py to set\nthe GPU flag to True."
+    print("Running with a CPU.  If this is not desired, then the modify "+\
+        "network3.py to set\nthe GPU flag to True.")
 
 #### Load the MNIST data
 def load_data_shared(filename="../data/mnist.pkl.gz"):
